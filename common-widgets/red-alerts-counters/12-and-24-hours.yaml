@@ -1,0 +1,48 @@
+title: Alert Statistics
+square: false
+type: grid
+columns: 2
+cards:
+# 12 hours
+- type: custom:button-card
+  entity: sensor.unsafe_alerts_count_12h
+  name: Alerts 12h
+  icon: mdi:clock-time-twelve
+  styles:
+    card:
+      - padding: 12px
+    name:
+      - font-weight: bold
+      - color: white
+    state:
+      - color: white
+    icon:
+      - color: white
+      - width: 24px
+      - height: 24px
+  state:
+    - styles:
+        card:
+          - background-color: "#4285f4"
+
+# 24 hours
+- type: custom:button-card
+  entity: sensor.unsafe_alerts_count_24h
+  name: Alerts 24h
+  icon: mdi:calendar-today
+  styles:
+    card:
+      - padding: 12px
+    name:
+      - font-weight: bold
+      - color: white
+    state:
+      - color: white
+    icon:
+      - color: white
+      - width: 24px
+      - height: 24px
+  state:
+    - styles:
+        card:
+          - background-color: "#4285f4"
