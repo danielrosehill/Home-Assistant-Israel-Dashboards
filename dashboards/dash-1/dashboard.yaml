@@ -1,0 +1,996 @@
+title: Home
+views:
+  - title: Home
+    cards: []
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: markdown
+            content: '# Residence Mission Control'
+          - square: false
+            type: grid
+            columns: 1
+            cards:
+              - type: custom:button-card
+                entity: sensor.hebcal_hebrew_date
+                show_name: false
+                show_state: true
+                show_icon: false
+                styles:
+                  card:
+                    - background: 'linear-gradient(135deg, #4B6CB7 0%, #182848 100%)'
+                    - border-radius: 15px
+                    - padding: 16px
+                  state:
+                    - color: white
+                    - font-weight: bold
+                    - font-size: 18px
+                    - text-align: center
+                    - justify-self: center
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: custom:mushroom-template-card
+                primary: Living Room
+                secondary: '{{ states(''sensor.0xa4c138f57f884a13_temperature'') }}°C'
+                icon: mdi:thermometer
+                icon_color: >-
+                  {% set temp = states('sensor.0xa4c138f57f884a13_temperature')
+                  | float %} {% if temp > 25 %}
+                    red
+                  {% elif temp < 18 %}
+                    blue
+                  {% else %}
+                    green
+                  {% endif %}
+                layout: vertical
+                tap_action:
+                  action: more-info
+                style: |
+                  ha-card {
+                    background: {% set temp = states('sensor.0xa4c138f57f884a13_temperature') | float %}
+                    {% if temp > 25 %}
+                      rgba(255, 0, 0, 0.1)
+                    {% elif temp < 18 %}
+                      rgba(0, 0, 255, 0.1)
+                    {% else %}
+                      rgba(0, 255, 0, 0.1)
+                    {% endif %};
+                    border-radius: 12px;
+                  }
+              - type: custom:mushroom-template-card
+                primary: Bedroom
+                secondary: '{{ states(''sensor.0xa4c13819ea1ff606_temperature'') }}°C'
+                icon: mdi:thermometer
+                icon_color: >-
+                  {% set temp = states('sensor.0xa4c13819ea1ff606_temperature')
+                  | float %} {% if temp > 25 %}
+                    red
+                  {% elif temp < 18 %}
+                    blue
+                  {% else %}
+                    green
+                  {% endif %}
+                layout: vertical
+                tap_action:
+                  action: more-info
+                style: |
+                  ha-card {
+                    background: {% set temp = states('sensor.0xa4c13819ea1ff606_temperature') | float %}
+                    {% if temp > 25 %}
+                      rgba(255, 0, 0, 0.1)
+                    {% elif temp < 18 %}
+                      rgba(0, 0, 255, 0.1)
+                    {% else %}
+                      rgba(0, 255, 0, 0.1)
+                    {% endif %};
+                    border-radius: 12px;
+                  }
+              - type: custom:mushroom-template-card
+                primary: Office
+                secondary: '{{ states(''sensor.0x142d41fffe67e170_temperature'') }}°C'
+                icon: mdi:thermometer
+                icon_color: >-
+                  {% set temp = states('sensor.0x142d41fffe67e170_temperature')
+                  | float %} {% if temp > 25 %}
+                    red
+                  {% elif temp < 18 %}
+                    blue
+                  {% else %}
+                    green
+                  {% endif %}
+                layout: vertical
+                tap_action:
+                  action: more-info
+                style: |
+                  ha-card {
+                    background: {% set temp = states('sensor.0x142d41fffe67e170_temperature') | float %}
+                    {% if temp > 25 %}
+                      rgba(255, 0, 0, 0.1)
+                    {% elif temp < 18 %}
+                      rgba(0, 0, 255, 0.1)
+                    {% else %}
+                      rgba(0, 255, 0, 0.1)
+                    {% endif %};
+                    border-radius: 12px;
+                  }
+              - type: custom:mushroom-template-card
+                primary: Nursery (Temp)
+                secondary: '{{ states(''sensor.0xa4c138704b4a7984_temperature'') }}°C'
+                icon: mdi:thermometer
+                icon_color: >-
+                  {% set temp = states('sensor.0xa4c138704b4a7984_temperature')
+                  | float %} {% if temp > 25 %}
+                    red
+                  {% elif temp < 18 %}
+                    blue
+                  {% else %}
+                    green
+                  {% endif %}
+                layout: vertical
+                tap_action:
+                  action: more-info
+                style: |
+                  ha-card {
+                    background: {% set temp = states('sensor.0xa4c138704b4a7984_temperature') | float %}
+                    {% if temp > 25 %}
+                      rgba(255, 0, 0, 0.1)
+                    {% elif temp < 18 %}
+                      rgba(0, 0, 255, 0.1)
+                    {% else %}
+                      rgba(0, 255, 0, 0.1)
+                    {% endif %};
+                    border-radius: 12px;
+                  }
+              - type: custom:mushroom-template-card
+                primary: Nursery (RH)
+                secondary: '{{ states(''sensor.0xa4c138704b4a7984_humidity'') }}%'
+                icon: mdi:water-percent
+                icon_color: >-
+                  {% set humidity = states('sensor.0xa4c138704b4a7984_humidity')
+                  | float %} {% if humidity > 60 %}
+                    red
+                  {% elif humidity < 30 %}
+                    orange
+                  {% else %}
+                    green
+                  {% endif %}
+                layout: vertical
+                tap_action:
+                  action: more-info
+                style: |
+                  ha-card {
+                    background: {% set humidity = states('sensor.0xa4c138704b4a7984_humidity') | float %}
+                    {% if humidity > 60 %}
+                      rgba(255, 0, 0, 0.1)
+                    {% elif humidity < 30 %}
+                      rgba(255, 165, 0, 0.1)
+                    {% else %}
+                      rgba(0, 255, 0, 0.1)
+                    {% endif %};
+                    border-radius: 12px;
+                  }
+          - square: false
+            type: grid
+            columns: 4
+            cards:
+              - type: custom:button-card
+                entity: binary_sensor.kitchensmokedetector_smoke
+                name: Kitchen
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                state:
+                  - value: 'on'
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: 'off'
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: unavailable
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+              - type: custom:button-card
+                entity: binary_sensor.office_smoke_detector_smoke
+                name: Office
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                state:
+                  - value: 'on'
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: 'off'
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: unavailable
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+              - type: custom:button-card
+                entity: binary_sensor.bedroom_smoke_detector_smoke
+                name: Bedroom
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                state:
+                  - value: 'on'
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: 'off'
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: unavailable
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+              - type: custom:button-card
+                entity: binary_sensor.living_room_smoke_detector_smoke
+                name: Living Room
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                state:
+                  - value: 'on'
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: 'off'
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+                  - value: unavailable
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+                      name:
+                        - color: white
+                      state:
+                        - color: white
+            title: Smoke Detectors
+          - square: false
+            type: grid
+            cards:
+              - type: custom:button-card
+                entity: binary_sensor.door_window_sensors
+                name: Doors & Windows
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                state:
+                  - value: 'on'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#ff0000'
+                  - value: 'off'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#45c669'
+                  - value: unavailable
+                    color: black
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+              - type: custom:button-card
+                entity: binary_sensor.0xa4c1380e264fb9bc_contact
+                name: Front door
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                state:
+                  - value: 'on'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#ff0000'
+                  - value: 'off'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#45c669'
+                  - value: unavailable
+                    color: black
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+              - type: custom:button-card
+                entity: binary_sensor.0xa4c138a7125cb809_contact
+                name: Left door, right side
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                state:
+                  - value: 'on'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#ff0000'
+                  - value: 'off'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#45c669'
+                  - value: unavailable
+                    color: black
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+              - type: custom:button-card
+                entity: binary_sensor.right_patio_window_left_side_contact
+                name: Right window, left side
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                state:
+                  - value: 'on'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#ff0000'
+                  - value: 'off'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#45c669'
+                  - value: unavailable
+                    color: black
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+              - type: custom:button-card
+                entity: binary_sensor.0xa4c138b5c7ef7acd_contact
+                name: Right patio window, right side
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                state:
+                  - value: 'on'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#ff0000'
+                  - value: 'off'
+                    color: white
+                    styles:
+                      card:
+                        - background-color: '#45c669'
+                  - value: unavailable
+                    color: black
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+            title: Intrusion Sensors
+            columns: 2
+          - type: vertical-stack
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - type: entity
+                        entity: sensor.hebcal_start_of_shabbat
+                        name: Shabbat In
+                        card_mod:
+                          style: |
+                            ha-card {
+                              background: linear-gradient(120deg, #2980b9, #6dd5fa);
+                              border-radius: 15px;
+                              padding: 15px;
+                            }
+                            .card-content {
+                              color: white !important;
+                            }
+                            .primary {
+                              font-size: 1.8em;
+                              font-weight: bold;
+                              color: white !important;
+                            }
+                            .secondary {
+                              font-size: 1.2em;
+                              color: white !important;
+                            }
+                            :host {
+                              --primary-text-color: white;
+                              --secondary-text-color: white;
+                            }
+                      - type: entity
+                        entity: sensor.hebcal_end_of_shabbat
+                        name: Shabbat Out
+                        card_mod:
+                          style: |
+                            ha-card {
+                              background: linear-gradient(120deg, #2980b9, #6dd5fa);
+                              border-radius: 15px;
+                              padding: 15px;
+                            }
+                            .card-content {
+                              color: white !important;
+                            }
+                            .primary {
+                              font-size: 1.8em;
+                              font-weight: bold;
+                              color: white !important;
+                            }
+                            .secondary {
+                              font-size: 1.2em;
+                              color: white !important;
+                            }
+                            :host {
+                              --primary-text-color: white;
+                              --secondary-text-color: white;
+                            }
+                  - type: entity
+                    entity: sensor.hebcal_parsha
+                    name: Parsha
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: linear-gradient(120deg, #2980b9, #6dd5fa);
+                          border-radius: 15px;
+                          padding: 15px;
+                          text-align: center;
+                        }
+                        .card-content {
+                          color: white !important;
+                        }
+                        .primary {
+                          font-size: 1.6em;
+                          font-weight: bold;
+                          color: white !important;
+                          line-height: 1.2;
+                        }
+                        .secondary {
+                          font-size: 1.4em;
+                          color: white !important;
+                          line-height: 1.2;
+                        }
+                        :host {
+                          --primary-text-color: white;
+                          --secondary-text-color: white;
+                        }
+              - type: grid
+                columns: 2
+                square: false
+                cards:
+                  - type: custom:button-card
+                    triggers_update:
+                      - sensor.time
+                    name: Current Time
+                    show_name: true
+                    show_state: false
+                    show_label: true
+                    label: |
+                      [[[
+                        let time = new Date();
+                        let hours = time.getHours().toString().padStart(2, '0');
+                        let minutes = time.getMinutes().toString().padStart(2, '0');
+                        return `${hours}:${minutes}`;
+                      ]]]
+                    styles:
+                      card:
+                        - background-color: blue
+                        - height: 70px
+                      name:
+                        - color: white
+                        - font-size: 16px
+                      label:
+                        - color: white
+                        - font-size: 20px
+                  - type: custom:button-card
+                    name: Earliest Tefilin
+                    entity: sensor.hebcal_zmanim
+                    show_name: true
+                    show_state: false
+                    show_label: true
+                    label: |
+                      [[[
+                        return states['sensor.hebcal_zmanim'].attributes[' Time for Talit and Tefilin'];
+                      ]]]
+                    styles:
+                      card:
+                        - background-color: blue
+                        - height: 70px
+                      name:
+                        - color: white
+                        - font-size: 16px
+                      label:
+                        - color: white
+                        - font-size: 20px
+          - square: false
+            type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: binary_sensor.kitchensmokedetector_battery_low
+                name: Kitchen
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                state:
+                  - value: 'on'
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                  - value: 'off'
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+              - type: custom:button-card
+                entity: sensor.living_room_smoke_detector_battery
+                name: |
+                  [[[ return `Living Room (${entity.state}%)`; ]]]
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - display: none
+                state:
+                  - operator: '>='
+                    value: 75
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                  - operator: '>='
+                    value: 50
+                    styles:
+                      card:
+                        - background-color: '#fbbc04'
+                  - operator: <
+                    value: 50
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+              - type: custom:button-card
+                entity: sensor.bedroom_smoke_detector_battery
+                name: |
+                  [[[ return `Bedroom (${entity.state}%)`; ]]]
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - display: none
+                state:
+                  - operator: '>='
+                    value: 75
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                  - operator: '>='
+                    value: 50
+                    styles:
+                      card:
+                        - background-color: '#fbbc04'
+                  - operator: <
+                    value: 50
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+              - type: custom:button-card
+                entity: sensor.office_smoke_detector_battery
+                name: |
+                  [[[ return `Office (${entity.state}%)`; ]]]
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - display: none
+                state:
+                  - operator: '>='
+                    value: 75
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                  - operator: '>='
+                    value: 50
+                    styles:
+                      card:
+                        - background-color: '#fbbc04'
+                  - operator: <
+                    value: 50
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+            title: Smoke Detector Battery Levels
+          - type: horizontal-stack
+            cards:
+              - type: entity
+                entity: sensor.jerusalem_yshrl_usalem_pm2_5
+                name: PM 2.5
+              - graph: line
+                type: sensor
+                entity: sensor.jerusalem_yshrl_usalem_air_quality_index
+                detail: 1
+                name: Air Quality Index
+      - type: grid
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entity
+                entity: sensor.time
+                name: Local
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: linear-gradient(120deg, #2980b9, #6dd5fa);
+                      border-radius: 15px;
+                      padding: 15px;
+                    }
+                    .card-content {
+                      color: white !important;
+                    }
+                    .primary {
+                      font-size: 1.8em;
+                      font-weight: bold;
+                      color: white !important;
+                    }
+                    .secondary {
+                      font-size: 1.2em;
+                      color: white !important;
+                    }
+                    :host {
+                      --primary-text-color: white;
+                      --secondary-text-color: white;
+                    }
+              - type: entity
+                entity: sensor.time_utc
+                name: UTC
+                card_mod:
+                  style: |
+                    ha-card {
+                      background: linear-gradient(120deg, #2980b9, #6dd5fa);
+                      border-radius: 15px;
+                      padding: 15px;
+                    }
+                    .card-content {
+                      color: white !important;
+                    }
+                    .primary {
+                      font-size: 1.8em;
+                      font-weight: bold;
+                      color: white !important;
+                    }
+                    .secondary {
+                      font-size: 1.2em;
+                      color: white !important;
+                    }
+                    :host {
+                      --primary-text-color: white;
+                      --secondary-text-color: white;
+                    }
+          - square: false
+            type: grid
+            columns: 2
+            cards:
+              - type: custom:button-card
+                entity: binary_sensor.oref_alert_jerusalem_all_areas
+                name: Jerusalem All Areas
+                icon: mdi:check-circle
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                  icon:
+                    - color: white
+                    - width: 24px
+                    - height: 24px
+                state:
+                  - value: 'on'
+                    name: Jerusalem All Areas (UNSAFE)
+                    icon: mdi:alert-octagram
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                      icon:
+                        - animation: blink 1s ease infinite
+                  - value: 'off'
+                    name: Jerusalem All Areas (Safe)
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                  - value: unavailable
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+              - type: custom:button-card
+                entity: binary_sensor.oref_alert
+                name: Jerusalem Center
+                icon: mdi:check-circle
+                styles:
+                  card:
+                    - padding: 12px
+                  name:
+                    - font-weight: bold
+                    - color: white
+                  state:
+                    - color: white
+                  icon:
+                    - color: white
+                    - width: 24px
+                    - height: 24px
+                state:
+                  - value: 'on'
+                    name: Jerusalem Center (UNSAFE)
+                    icon: mdi:alert-octagram
+                    styles:
+                      card:
+                        - background-color: '#ea4335'
+                      icon:
+                        - animation: blink 1s ease infinite
+                  - value: 'off'
+                    name: Jerusalem Center (Safe)
+                    styles:
+                      card:
+                        - background-color: '#34a853'
+                  - value: unavailable
+                    styles:
+                      card:
+                        - background-color: '#ffa500'
+            title: Red Alerts
+          - square: false
+            type: grid
+            columns: 3
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-bathrooms/0
+                name: Bathrooms
+                icon: mdi:toilet
+              - type: button
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-bedroom/0
+                name: Bedroom
+                icon: mdi:bed
+              - type: button
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-kitchen/0
+                name: Kitchen
+                icon: mdi:stove
+              - type: button
+                tap_action:
+                  action: navigate
+                  navigation_path: /living-room/0
+                name: Living Room
+                icon: mdi:sofa
+              - type: button
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-office/0
+                name: Office
+                icon: mdi:desk
+              - type: button
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-patio/0
+                name: Patio
+                icon: mdi:umbrella-beach
+            title: Room Controls
+          - square: true
+            type: grid
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: light.kitchen_lights
+                name: Kitchen
+                tap_action:
+                  action: toggle
+              - type: button
+                entity: light.living_room_lights
+                name: Living Room
+                tap_action:
+                  action: toggle
+              - type: button
+                entity: light.bedroom_lights
+                name: Bedroom
+                tap_action:
+                  action: toggle
+              - type: button
+                entity: light.office_lights
+                name: Office
+                tap_action:
+                  action: toggle
+              - show_name: true
+                show_icon: true
+                type: button
+                entity: light.patio_lights_all
+                name: Patio
+                tap_action:
+                  action: toggle
+              - type: button
+                entity: light.bathroom_lights
+                name: Bathroom
+                tap_action:
+                  action: toggle
+              - type: button
+                entity: light.powder_room_lights
+                name: Powder Room
+                tap_action:
+                  action: toggle
+            title: Area Light Controls
+            columns: 4
+          - type: custom:auto-entities
+            filter:
+              include:
+                - domain: light
+                  state: 'on'
+            show_empty: false
+            card:
+              show_name: true
+              show_icon: true
+              show_state: false
+              type: glance
+              columns: 4
+              state_color: true
+              title: Active Lights
+              card_mod:
+                style: |
+                  ha-card {
+                    background: var(--card-background-color, var(--ha-card-background));
+                    border-radius: 12px;
+                    padding: 12px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                  }
+                  .header {
+                    font-weight: bold;
+                    padding: 8px 16px;
+                    color: var(--primary-text-color);
+                  }
+                  .name {
+                    font-size: 14px;
+                  }
+                  ha-card .entity {
+                    background: rgba(var(--rgb-primary-color), 0.05);
+                    border-radius: 12px;
+                    margin: 4px;
+                    padding: 8px;
+                    border: 1px solid rgba(var(--rgb-primary-color), 0.1);
+                  }
+                  ha-card .entity:hover {
+                    background: rgba(var(--rgb-primary-color), 0.1);
+                    transform: scale(1.02);
+                    transition: all 0.2s ease-in-out;
+                  }
+            sort:
+              method: none
+              reverse: false
+          - type: glance
+            entities:
+              - entity: input_boolean.power_outage_detected
+                name: Power Out
+                icon: mdi:power-socket-au
+                severity:
+                  red: 'on'
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: '# Outdoor Conditions'
+              - show_current: true
+                show_forecast: false
+                type: weather-forecast
+                entity: weather.ims_weather
+                forecast_type: daily
+                name: Jerusalem, IL
+              - show_current: false
+                show_forecast: true
+                type: weather-forecast
+                entity: weather.ims_weather
+                forecast_type: daily
+                name: Jerusalem, IL
+        column_span: 1
+      - type: grid
+        cards: []
+        column_span: 2
+      - type: grid
+        cards: []
+    max_columns: 2
+    dense_section_placement: true
+    badges: []
