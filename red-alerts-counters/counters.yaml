@@ -1,0 +1,79 @@
+# 30 minutes
+- platform: history_stats
+  name: "Unsafe Alerts Count 30min"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    minutes: 30
+
+# 1 hour
+- platform: history_stats
+  name: "Unsafe Alerts Count 1h"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    hours: 1
+
+# 3 hours
+- platform: history_stats
+  name: "Unsafe Alerts Count 3h"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    hours: 3
+
+# 12 hours
+- platform: history_stats
+  name: "Unsafe Alerts Count 12h"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    hours: 12
+
+# 24 hours
+- platform: history_stats
+  name: "Unsafe Alerts Count 24h"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    hours: 24
+
+# 1 week
+- platform: history_stats
+  name: "Unsafe Alerts Count 1w"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    days: 7
+
+# 1 month (30 days)
+- platform: history_stats
+  name: "Unsafe Alerts Count 1m"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    days: 30
+
+# 1 year (365 days)
+- platform: history_stats
+  name: "Unsafe Alerts Count 1y"
+  entity_id: binary_sensor.oref_alert_all_areas
+  state: "on"
+  type: count
+  end: "{{ now() }}"
+  duration:
+    days: 365
