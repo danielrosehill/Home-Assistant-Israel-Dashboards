@@ -1,0 +1,16 @@
+type: vertical-stack
+cards:
+  - type: markdown
+    content: "# Outdoor Conditions"
+  - show_current: true
+    show_forecast: false
+    type: weather-forecast
+    entity: weather.ims_weather
+    forecast_type: daily
+    name: Jerusalem, IL
+  - show_current: false
+    show_forecast: true
+    type: weather-forecast
+    entity: weather.ims_weather
+    forecast_type: daily
+    name: Jerusalem, IL

@@ -1,0 +1,54 @@
+type: horizontal-stack
+cards:
+  - type: entity
+    entity: sensor.time
+    name: Local
+    card_mod:
+      style: |
+        ha-card {
+          background: linear-gradient(120deg, #2980b9, #6dd5fa);
+          border-radius: 15px;
+          padding: 15px;
+        }
+        .card-content {
+          color: white !important;
+        }
+        .primary {
+          font-size: 1.8em;
+          font-weight: bold;
+          color: white !important;
+        }
+        .secondary {
+          font-size: 1.2em;
+          color: white !important;
+        }
+        :host {
+          --primary-text-color: white;
+          --secondary-text-color: white;
+        }
+  - type: entity
+    entity: sensor.time_utc
+    name: UTC
+    card_mod:
+      style: |
+        ha-card {
+          background: linear-gradient(120deg, #2980b9, #6dd5fa);
+          border-radius: 15px;
+          padding: 15px;
+        }
+        .card-content {
+          color: white !important;
+        }
+        .primary {
+          font-size: 1.8em;
+          font-weight: bold;
+          color: white !important;
+        }
+        .secondary {
+          font-size: 1.2em;
+          color: white !important;
+        }
+        :host {
+          --primary-text-color: white;
+          --secondary-text-color: white;
+        }
